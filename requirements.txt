@@ -1,0 +1,6 @@
+tweepy
+hypothesis
+celery
+apache-airflow[celery,kubernetes,mysql,password,slack]
+mysql-connector-python
+papermill
