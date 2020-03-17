@@ -43,7 +43,10 @@ class MyCustomListener(tweepy.StreamListener):
         return True
 
     def on_data(self, raw_data):
-        data = json.loads(raw_data)
-        if "text" in data:
-            tweet_collection = self.client['data_engineer']['tweet']
-            tweet_collection.insert(data)
+        try:
+            data = json.loads(raw_data)
+            if "text" in data:
+                tweet_collection = self.client['data_engineer']['tweet']
+                tweet_collection.insert(data)
+        except Exception as e:
+            print('Error:', e)
