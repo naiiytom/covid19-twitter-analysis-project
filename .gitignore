@@ -1,3 +1,5 @@
 /*/__pycache__
 /.vscode
 */secret
+.ipynb_checkpoints/
+data/
