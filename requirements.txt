@@ -4,3 +4,6 @@ celery
 apache-airflow[celery,kubernetes,mysql,password,slack]
 mysql-connector-python
 papermill
+kaggle
+folium
+calmap

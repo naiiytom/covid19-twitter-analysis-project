@@ -24,7 +24,7 @@ def start_stream(stream, **kwargs):
     except Exception as e:
         print(e)
         stream.disconnect()
-        print("Fatal Error")
+        print('Fatal Error')
 
 
 class MyCustomListener(tweepy.StreamListener):
@@ -42,12 +42,16 @@ class MyCustomListener(tweepy.StreamListener):
         print(status.text)
         return True
 
+    def on_limit(self, track):
+        print('Waiting. . .')
+        return super().on_limit(track)
+
     def on_data(self, raw_data):
         try:
             data = json.loads(raw_data)
-            if ("text" in data) and ("retweet" not in data) and ("lang" == 'th'):
-                tweet_collection = self.client['data_engineer']['tweet']
-                print(data.text)
+            if ('text' in data) and (data['lang'] == 'th') and ('retweeted_status' not in data) and ('RT @' not in data['text']):
+                tweet_collection = self.client['data_engineer']['tweets']
+                print(data['text'])
                 tweet_collection.insert(data)
         except Exception as e:
             print('Error:', e)
