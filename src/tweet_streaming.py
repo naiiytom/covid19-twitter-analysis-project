@@ -45,8 +45,9 @@ class MyCustomListener(tweepy.StreamListener):
     def on_data(self, raw_data):
         try:
             data = json.loads(raw_data)
-            if "text" in data:
+            if ("text" in data) and ("retweet" not in data) and ("lang" == 'th'):
                 tweet_collection = self.client['data_engineer']['tweet']
+                print(data.text)
                 tweet_collection.insert(data)
         except Exception as e:
             print('Error:', e)
