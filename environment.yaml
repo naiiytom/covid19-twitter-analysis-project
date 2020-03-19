@@ -13,5 +13,4 @@ dependencies:
   - scipy
   - seaborn
   - pymongo
-  - plotly
   - pillow

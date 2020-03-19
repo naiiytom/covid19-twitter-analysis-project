@@ -1,3 +1,4 @@
+plotly
 tweepy
 papermill
 kaggle
