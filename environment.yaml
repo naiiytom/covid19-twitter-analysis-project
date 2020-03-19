@@ -1,4 +1,4 @@
-name: airflow
+name: workflow
 channels:
   - conda-forge
   - defaults
@@ -14,4 +14,4 @@ dependencies:
   - seaborn
   - pymongo
   - plotly
-
+  - pillow
